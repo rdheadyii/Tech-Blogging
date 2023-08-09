@@ -14,6 +14,9 @@ const helpers = require('./utils/helpers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// set up handlebars engine with custom helpers
+const hbs = exphbs.create({helpers});
+
 // declare the session
 const sess = {
     secret: '',
@@ -29,8 +32,6 @@ const sess = {
 };
 
 app.use(session(sess));
-
-const hbs = exphbs.create({helpers});
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
