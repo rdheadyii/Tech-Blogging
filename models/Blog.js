@@ -1,8 +1,11 @@
+// import sequelize and connection
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
 
+// class to extend Model
 class Blog extends Model {}
 
+// write model for blog 
 Blog.init(
     {
         id: {
@@ -18,5 +21,27 @@ Blog.init(
         description: {
             type: DataTypes.STRING
         },
+        date_created: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
+        },
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'blog',
     }
-)
+);
+
+// export Blog
+module.exports = Blog;
