@@ -19,7 +19,7 @@ const hbs = exphbs.create({helpers});
 
 // declare the session
 const sess = {
-    secret: '',
+    secret: 'All Your Base Are Belong To Us',
     cookie: {
         // store cookie in milliseconds
         maxAge: 24 * 60 * 60 * 1000, // cookie expires in 1 day
