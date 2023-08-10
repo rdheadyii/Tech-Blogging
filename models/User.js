@@ -52,4 +52,5 @@ User.init(
     }
 );
 
-// export Blog
+// export User
+module.exports = User;

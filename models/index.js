@@ -1,7 +1,7 @@
 // import models
-const User = require('./User');
-const Blog = reruire('./Blog');
-const Comment = require('./Comment');
+const User = require('./User.js');
+const Blog = require('./Blog.js');
+const Comment = require('./Comment.js');
 
 // associate models to each other
 User.hasMany(Blog, {
